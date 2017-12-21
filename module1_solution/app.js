@@ -12,7 +12,10 @@ function LunchCheckController($scope) {
   $scope.displayMessage = function () {
       let numberOfDishes = calculateNumberOfDishesInList($scope.listOfDishes);
       let message = checkIfTooMuch(numberOfDishes);
+      let color = getColorForMessage(message);
+
       $scope.message = message;
+      $scope.color = color;
   }
 
   function calculateNumberOfDishesInList(listOfDishes) {
@@ -31,6 +34,14 @@ function LunchCheckController($scope) {
       return "Enjoy!";
     } else {
       return "Too much!";
+    }
+  }
+
+  function getColorForMessage(message) {
+    if (["Enjoy!", "Too much!"].some(text => text == message)) {
+      return "green";
+    } else {
+      return "red";
     }
   }
 
