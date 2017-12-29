@@ -4,10 +4,25 @@
 angular.module("ShoppingListCheckOff", [])
 
 .controller("ToBuyController", ToBuyController)
-.controller("AlreadyBoughtController", AlreadyBoughtController);
+.controller("AlreadyBoughtController", AlreadyBoughtController)
+.service("ShoppingListCheckOffService", ShoppingListCheckOffService);
 
 
-ToBuyController.$inject = ['$scope'];
-AlreadyBoughtController.$inject = ['$scope'];
+ToBuyController.$inject = ["ShoppingListCheckOffService"];
+AlreadyBoughtController.$inject = ["ShoppingListCheckOffService"];
+
+ToBuyController = function (ShoppingListCheckOffService) {
+  var toBuyList = this;
+
+}
+
+AlreadyBoughtController = function (ShoppingListCheckOffService) {
+  var alreadyBoughtList = this;
+
+}
+
+ShoppingListCheckOffService = function () {
+  var service = this;
+}
 
 })();
