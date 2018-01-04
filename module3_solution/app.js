@@ -13,21 +13,14 @@ function NarrowItDownController(MenuSearchService) {
   let menu = this;
 
   menu.searchTerm = "";
-  menu.message = "";
-  menu.found = [];
 
   menu.showMatchedMenuItems = function () {
     let promise = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
-    menu.message = "";
 
     promise.then(function (response) {
       menu.found = response;
-      if (menu.found.length === 0) {
-        menu.message = "Nothing Found!";
-      }
     })
     .catch(function (error) {
-      menu.message =  "There was a problem while fetching the menu items: " + error;
       menu.found = [];
     })
   };
@@ -76,12 +69,20 @@ function FoundItems() {
       foundItems: "<",
       onRemove: "&"
     },
-    transclude: true,
-    controllerAs: "menu",
-    bindToCotroller: true
+    controller: FoundItemsDirectiveController,
+    controllerAs: "ctrl",
+    bindToController: true
   };
 
   return ddo;
+}
+
+function FoundItemsDirectiveController() {
+  let ctrl = this;
+
+  ctrl.isListEmpty = function () {
+    return ctrl.foundItems && ctrl.foundItems.length === 0;
+  }
 }
 
 })();
