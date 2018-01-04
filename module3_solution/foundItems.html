@@ -1,21 +1,25 @@
+<div class="container">
 
-<table class="table">
-  <thead>
-    <th scope="col">Name</td>
-    <th scope="col">Short Name</td>
-    <th scope="col">Description</td>
-    <th scope="col">Actions</td>
-  </thead>
-  <tbody>
-    <tr ng-repeat="item in foundItems">
-      <td>{{ item.name }}</td>
-      <td>{{ item.short_name }}</td>
-      <td>{{ item.description }}</td>
-      <td>
-        <button class="btn btn-danger" ng-click="onRemove({itemIndex: $index})">
-          Don't want this one!
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table" ng-show="foundItems.length>0">
+    <thead>
+      <th scope="col">Name</td>
+      <th scope="col">Short Name</td>
+      <th scope="col">Description</td>
+      <th scope="col">Actions</td>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in foundItems">
+        <td>{{ item.name }}</td>
+        <td>{{ item.short_name }}</td>
+        <td>{{ item.description }}</td>
+        <td>
+          <button class="btn btn-danger" ng-click="onRemove({itemIndex: $index})">
+            Don't want this one!
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="alert alert-danger" ng-show="menu.message.length>0">{{ menu.message }}</p>
+</div>
