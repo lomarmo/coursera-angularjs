@@ -1,0 +1,21 @@
+
+<table class="table">
+  <thead>
+    <th scope="col">Name</td>
+    <th scope="col">Short Name</td>
+    <th scope="col">Description</td>
+    <th scope="col">Actions</td>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in foundItems">
+      <td>{{ item.name }}</td>
+      <td>{{ item.short_name }}</td>
+      <td>{{ item.description }}</td>
+      <td>
+        <button class="btn btn-danger" ng-click="onRemove({itemIndex: $index})">
+          Remove item
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
