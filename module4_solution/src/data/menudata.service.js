@@ -31,7 +31,7 @@ function MenuDataService(WebServiceBasePath, $http) {
         category: categoryShortName
       }
     }).then(function (result) {
-      return result.data.menu_items;
+      return result.data;
     });
 
   };

@@ -4,11 +4,12 @@
 angular.module('data')
 .controller('ItemsController', ItemsController);
 
-ItemsController.$inject = ['itemsList'];
-function ItemsController(itemsList) {
+ItemsController.$inject = ['categoryInfo'];
+function ItemsController(categoryInfo) {
   let items = this;
 
-  items.list = itemsList;
+  items.list = categoryInfo.menu_items;
+  items.category = categoryInfo.category;
 
 }
 
