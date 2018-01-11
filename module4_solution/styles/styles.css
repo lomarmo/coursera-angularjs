@@ -1,0 +1,12 @@
+body {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.categories.list-group {
+  max-width: 400px;
+}
+
+.items.list-group {
+  max-width: 400px;
+}
