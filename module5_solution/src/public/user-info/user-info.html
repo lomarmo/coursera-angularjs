@@ -1,0 +1,19 @@
+<div class="container w-25" ng-show="userInfoCtrl.isUserRegistered()">
+  <h2 class="text-center">Your profile</h2>
+  <div class="text-center">
+    Please find your registered information below.
+  </div>
+
+  <div class="">First name: {{ userInfoCtrl.user.firstName }}</div>
+  <div class="">Last name: {{ userInfoCtrl.user.lastName }}</div>
+  <div class="">Email address: {{ userInfoCtrl.user.emailAdress }}</div>
+  <div class="">Phone number: {{ userInfoCtrl.user.phoneNumber }}</div>
+
+  <br>
+
+  <menu-item menu-item="userInfoCtrl.user.favoriteDish"></menu-item>
+
+</div>
+<div class="text-center" ng-hide="userInfoCtrl.isUserRegistered()">
+  <a ui-sref="public.signup" class="btn btn-success" >Sign up Now!</a>
+</div>
